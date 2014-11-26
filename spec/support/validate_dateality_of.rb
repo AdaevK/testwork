@@ -26,7 +26,7 @@ module ValidateDatealityOf
     end
 
     def failure_message_when_negated
-      "#{@model.class} validated :#{@attribute} dateality"
+      "#{@model.class} validated :#{@attribute} dateality."
     end
 
     def description
