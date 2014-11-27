@@ -9,6 +9,6 @@ class ContactsValidator < ActiveModel::EachValidator
   end
 
   def valid_phone(value)
-    value.match(/^\+?(\d|[\(\)\- ])+$/)
+    value.match(/^\+?[\d\(\)\- ]+$/)
   end
 end
