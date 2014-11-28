@@ -8,6 +8,8 @@ gem 'pg'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'will_paginate-bootstrap'
+
+gem 'acts-as-taggable-on', '~> 3.4'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass'
 gem 'breadcrumbs_on_rails'
