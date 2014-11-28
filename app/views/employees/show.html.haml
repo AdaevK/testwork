@@ -14,5 +14,9 @@
     %tr
       %td Зарплата, руб
       %td= number_to_currency @employee.salary, unit: ''
+    %tr
+      %td Умения
+      %td
+        %span{style: 'color: green'}= @employee.skill_list
 
 = link_to 'Редактировать работника', edit_employee_path(@employee), class: 'btn btn-default'

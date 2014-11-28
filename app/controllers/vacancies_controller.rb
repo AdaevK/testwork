@@ -71,7 +71,7 @@ class VacanciesController < ApplicationController
   private
 
     def vacancy_params
-      params.require(:vacancy).permit(:name, :validity, :salary, :contacts ) if params[:vacancy]
+      params.require(:vacancy).permit(:name, :validity, :salary, :contacts, :skill_list) if params[:vacancy]
     end
 
     def find_vacancy

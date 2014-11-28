@@ -15,6 +15,10 @@
       %td Зарплат, руб
       %td= number_to_currency @vacancy.salary, unit: ''
     %tr
+      %td Требуемые умения
+      %td
+        %span{style: 'color: green'}= @vacancy.skill_list
+    %tr
       %td Контактная информация
       %td= @vacancy.contacts
 

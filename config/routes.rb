@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   resources :vacancies
   resources :employees
+
+  get '/skills/list' => 'skills#list'
 end

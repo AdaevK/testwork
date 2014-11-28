@@ -71,7 +71,7 @@ class EmployeesController < ApplicationController
   private
 
     def employee_params
-      params.require(:employee).permit(:name, :status, :contacts, :salary ) if params[:employee]
+      params.require(:employee).permit(:name, :status, :contacts, :salary, :skill_list) if params[:employee]
     end
 
     def find_employee

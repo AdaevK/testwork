@@ -72,6 +72,7 @@ ru:
           not_looking: Не ищу работу
         salary: Зарплата
         contacts: Контактная информация
+        skill_list: Умения
 
       vacancy:
         name: Название
@@ -79,6 +80,7 @@ ru:
         validity: Срок действия до
         salary: Зарплата
         contacts: Контактная информация
+        skill_list: Умения
 
   faker:
     name:

@@ -15,5 +15,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker.ru.js
+//= require select2
+//= require select2_locale_ru
 //= require base
 //= require_tree .
