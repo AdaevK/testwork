@@ -77,7 +77,7 @@ ru:
       vacancy:
         name: Название
         created_at: Дата добавления
-        validity: Срок действия до
+        validity: Срок действия
         salary: Зарплата
         contacts: Контактная информация
         skill_list: Умения
