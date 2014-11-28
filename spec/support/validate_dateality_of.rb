@@ -4,14 +4,14 @@ module ValidateDatealityOf
 
     def initialize(attribute)
       @attribute = attribute
-      @message = "должна быть больше"
+      @message = "должен быть больше чем"
     end
 
     def matches?(model)
       @model = model
       @model.update_attribute(@attribute, NON_VALID_VALUE)
       @model.valid?
-      @message = "#{@message} #{@model.class.human_attribute_name(@greater_than_option)}" if @greater_than_option
+      @message = "#{@message} '#{@model.class.human_attribute_name(@greater_than_option).mb_chars.downcase}'" if @greater_than_option
       errors = @model.errors[@attribute]
       errors.any? { |error| error == @message }
     end

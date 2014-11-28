@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap-sprockets
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker.ru.js
+//= require base
 //= require_tree .

@@ -1,2 +1,18 @@
-%h1 Employees#show
-%p Find me in app/views/employees/show.html.haml
+%h2
+  = @employee.name
+  |
+  = link_to 'Удалить работника', employee_path(@employee), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger btn-sm'
+%hr/
+%table.table
+  %tbody
+    %tr
+      %td Статус поиска работы
+      %td= t "activerecord.attributes.employee.statuses.#{@employee.status}"
+    %tr
+      %td Контактная информация
+      %td= @employee.contacts
+    %tr
+      %td Зарплата, руб
+      %td= number_to_currency @employee.salary, unit: ''
+
+= link_to 'Редактировать работника', edit_employee_path(@employee), class: 'btn btn-default'

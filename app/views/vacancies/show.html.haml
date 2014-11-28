@@ -1,1 +1,21 @@
-#Show
+%h2
+  = @vacancy.name
+  |
+  = link_to 'Удалить вакансию', vacancy_path(@vacancy), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger btn-sm'
+%hr/
+%table.table
+  %tbody
+    %tr
+      %td Дата добавления
+      %td= @vacancy.created_at.strftime("%d.%m.%Y")
+    %tr
+      %td Срок действия до
+      %td= @vacancy.validity.strftime("%d.%m.%Y")
+    %tr
+      %td Зарплат, руб
+      %td= number_to_currency @vacancy.salary, unit: ''
+    %tr
+      %td Контактная информация
+      %td= @vacancy.contacts
+
+= link_to 'Редактировать вакансию', edit_vacancy_path(@vacancy), class: 'btn btn-default'

@@ -2,11 +2,15 @@ class VacanciesController < ApplicationController
   before_action :find_vacancy, only: [:show, :edit, :update, :destroy]
   before_action :new_vacancy, only: [:new, :create]
 
+  add_breadcrumb 'Вакансии', :vacancies_path
+
   def index
-    @vacancies = Vacancy.all
+    @vacancies = Vacancy.paginate( page: params[:page], per_page: 10 )
   end
 
   def new
+    add_breadcrumb 'Добавление вакансии', :new_vacancy_path
+
     respond_to do |format|
       format.html
       format.json { render json: @vacancy }
@@ -26,6 +30,8 @@ class VacanciesController < ApplicationController
   end
 
   def show
+    add_breadcrumb 'Просмотр вакансии', :vacancy_path
+
     respond_to do |format|
       format.html
       format.json { render json: @vacancy }
@@ -33,6 +39,8 @@ class VacanciesController < ApplicationController
   end
 
   def edit
+    add_breadcrumb 'Редактирование вакансии', :edit_vacancy_path
+
     respond_to do |format|
       format.html
       format.json { render json: @vacancy }

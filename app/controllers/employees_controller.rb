@@ -2,11 +2,15 @@ class EmployeesController < ApplicationController
   before_action :find_employee, only: [:show, :edit, :update, :destroy]
   before_action :new_employee, only: [:new, :create]
 
+  add_breadcrumb 'Работники', :employees_path
+
   def index
-    @employees = Employee.all
+    @employees = Employee.paginate( page: params[:page], per_page: 10 )
   end
 
   def new
+    add_breadcrumb 'Добавление работника', :new_employee_path
+
     respond_to do |format|
       format.html
       format.json { render json: @employee }
@@ -16,7 +20,7 @@ class EmployeesController < ApplicationController
   def create
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: "Сотрудник успешно создан." }
+        format.html { redirect_to @employee, notice: "Работник успешно создан." }
         format.json { render json: @employee, status: :created, location: @employee }
       else
         format.html { render action: 'new' }
@@ -26,6 +30,8 @@ class EmployeesController < ApplicationController
   end
 
   def show
+    add_breadcrumb 'Просмотр работника', :employee_path
+
     respond_to do |format|
       format.html
       format.json { render json: @employee }
@@ -33,6 +39,8 @@ class EmployeesController < ApplicationController
   end
 
   def edit
+    add_breadcrumb 'Редактирование работника', :edit_employee_path
+
     respond_to do |format|
       format.html
       format.json { render json: @employ }
@@ -42,7 +50,7 @@ class EmployeesController < ApplicationController
   def update
     respond_to do |format|
       if @employee.update_attributes(employee_params)
-        format.html { redirect_to @employee, notice: "Сотрудник успешно обновлен." }
+        format.html { redirect_to @employee, notice: "Работник успешно обновлен." }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -55,7 +63,7 @@ class EmployeesController < ApplicationController
     @employee.destroy
 
     respond_to do |format|
-      format.html { redirect_to employees_url, notice: "Сотрудник успешно удален." }
+      format.html { redirect_to employees_url, notice: "Работник успешно удален." }
       format.json { head :no_content }
     end
   end

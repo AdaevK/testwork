@@ -1,0 +1,8 @@
+.col-md-6
+  = simple_form_for @vacancy do |f|
+    = f.input :name
+    = f.input :validity, as: :string, input_html: { placeholder: 'Дата', class: 'datepicker' }
+    = f.input :salary
+    = f.input :contacts
+
+    = f.submit "Сохранить", class: 'btn btn-primary'
