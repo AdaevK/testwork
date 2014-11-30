@@ -1,0 +1,9 @@
+.col-md-6
+  = simple_form_for @employee do |f|
+    = f.input :name
+    = f.input :status, as: :radio_buttons, collection: Employee::STATUS.map{ |i| [ t("activerecord.attributes.employee.statuses.#{i}"), i ] }
+    = f.input :salary
+    = f.input :contacts
+    = f.input :skill_list, input_html: { id: 'skills' }
+
+    = f.submit "Сохранить", class: 'btn btn-primary'

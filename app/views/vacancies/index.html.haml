@@ -1,0 +1,6 @@
+.panel.panel-default
+  .panel-heading Список вакансий
+  .panel-body
+    = link_to "Добавить вакансию", new_vacancy_path, class: 'btn btn-success btn-sm'
+  = render 'list', vacancies: @vacancies
+= will_paginate @vacancies, renderer: BootstrapPagination::Rails

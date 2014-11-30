@@ -27,11 +27,18 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.4.2)
+      activerecord (>= 3.2, < 5)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (4.0.1)
+      execjs
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    bootstrap-sass (3.3.1.0)
+      sass (~> 3.2)
+    breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
@@ -56,6 +63,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     ffi (1.9.6)
     formatador (0.2.5)
     guard (2.9.0)
@@ -73,6 +82,11 @@ GEM
       rspec (>= 2.14, < 4.0)
     haml (4.0.5)
       tilt
+    haml-rails (0.5.3)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 3.1, < 5.0)
+      railties (>= 4.0.1)
     hike (1.2.3)
     hitimes (1.2.2)
     http_parser.rb (0.6.0)
@@ -155,6 +169,9 @@ GEM
       rdoc (~> 4.0)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     slop (3.6.0)
     spring (1.2.0)
     sprockets (2.12.3)
@@ -175,25 +192,31 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    turbolinks (2.5.2)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    will_paginate (3.0.7)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 3.4)
+  autoprefixer-rails
   better_errors
+  bootstrap-sass
+  breadcrumbs_on_rails
   coffee-rails (~> 4.0.0)
   factory_girl_rails
+  faker
   guard
   guard-livereload
   guard-rspec
-  haml
+  haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg
@@ -203,7 +226,8 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoulda-matchers
+  simple_form
   spring
   thin
-  turbolinks
   uglifier (>= 1.3.0)
+  will_paginate-bootstrap

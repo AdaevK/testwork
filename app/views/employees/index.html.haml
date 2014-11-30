@@ -1,0 +1,6 @@
+.panel.panel-default
+  .panel-heading Список работников
+  .panel-body
+    = link_to 'Добавить сотрудника', new_employee_path, class: 'btn btn-success btn-sm'
+  = render 'list', employees: @employees
+= will_paginate @employees, renderer: BootstrapPagination::Rails
