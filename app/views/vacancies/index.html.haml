@@ -2,22 +2,5 @@
   .panel-heading Список вакансий
   .panel-body
     = link_to "Добавить вакансию", new_vacancy_path, class: 'btn btn-success btn-sm'
-  %table.table
-    %thead
-      %tr
-        %th Название
-        %th Дата добавления
-        %th Срок действия
-        %th Зарплата, руб
-        %th
-    %tbody
-      - @vacancies.each do |vacancy|
-        %tr
-          %td= vacancy.name
-          %td= vacancy.created_at.strftime("%d.%m.%Y")
-          %td= vacancy.validity.strftime("%d.%m.%Y")
-          %td= number_to_currency vacancy.salary, unit: ''
-          %td
-            = link_to 'просмотр', vacancy_path(vacancy), class: 'btn btn-primary btn-xs'
-            = link_to 'редактировать', edit_vacancy_path(vacancy), class: 'btn btn-success btn-xs'
+  = render 'list', vacancies: @vacancies
 = will_paginate @vacancies, renderer: BootstrapPagination::Rails

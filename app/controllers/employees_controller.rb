@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+  include Suitable
+
   before_action :find_employee, only: [:show, :edit, :update, :destroy]
   before_action :new_employee, only: [:new, :create]
 
@@ -31,6 +33,8 @@ class EmployeesController < ApplicationController
 
   def show
     add_breadcrumb 'Просмотр работника', :employee_path
+    @fully_suitable = fully_suitable_vacancies @employee.skill_list
+    @suitable = suitable_vacancies @employee.skill_list
 
     respond_to do |format|
       format.html

@@ -20,3 +20,12 @@
         %span{style: 'color: green'}= @employee.skill_list
 
 = link_to 'Редактировать работника', edit_employee_path(@employee), class: 'btn btn-default'
+%br/
+%br/
+.panel.panel-default
+  .panel-heading Список полностью подходящих вакансий
+  = render 'vacancies/list', vacancies: @fully_suitable
+
+.panel.panel-default
+  .panel-heading Список частично подходящих вакансий
+  = render 'vacancies/list', vacancies: @suitable

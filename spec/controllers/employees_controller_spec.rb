@@ -54,6 +54,8 @@ RSpec.describe EmployeesController, :type => :controller do
     it{ expect(response).to have_http_status :success }
     it{ expect(response).to render_template :show }
     it{ expect(assigns(:employee)).to eq(employee) }
+
+    it_behaves_like 'show_suitable', Employee
   end
 
   context "GET edit" do

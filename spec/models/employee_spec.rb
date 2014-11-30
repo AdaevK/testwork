@@ -13,6 +13,8 @@ RSpec.describe Employee, :type => :model do
   it{ should validate_inclusion_of(:status).in_array(Employee::STATUS).with_message("неверный статус") }
   it{ should validate_numericality_of(:salary).is_greater_than(0) }
 
+  it_behaves_like 'skillable'
+
   context 'default scope' do
     it{ expect( Employee.default_scoped.order_values ).to eq [ 'salary ASC' ] }
   end

@@ -2,20 +2,5 @@
   .panel-heading Список работников
   .panel-body
     = link_to 'Добавить сотрудника', new_employee_path, class: 'btn btn-success btn-sm'
-  %table.table
-    %thead
-      %tr
-        %th Имя
-        %th Статус
-        %th Зарплата
-        %th
-    %tbody
-      - @employees.each do |employee|
-        %tr
-          %td= employee.name
-          %td= t "activerecord.attributes.employee.statuses.#{employee.status}"
-          %td= number_to_currency employee.salary, unit: ''
-          %td
-            = link_to 'просмотр', employee_path(employee), class: 'btn btn-primary btn-xs'
-            = link_to 'редактировать', edit_employee_path(employee), class: 'btn btn-success btn-xs'
+  = render 'list', employees: @employees
 = will_paginate @employees, renderer: BootstrapPagination::Rails

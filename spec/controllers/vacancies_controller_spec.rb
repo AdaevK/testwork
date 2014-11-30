@@ -54,6 +54,8 @@ RSpec.describe VacanciesController, :type => :controller do
     it{ expect(response).to have_http_status :success }
     it{ expect(response).to render_template :show }
     it{ expect(assigns(:vacancy)).to eq(vacancy) }
+
+    it_behaves_like 'show_suitable', Vacancy
   end
 
   context "GET edit" do

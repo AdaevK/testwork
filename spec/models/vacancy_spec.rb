@@ -11,6 +11,8 @@ RSpec.describe Vacancy, :type => :model do
   it{ should validate_dateality_of(:validity).greater_than(:created_at) }
   it{ should validate_numericality_of(:salary).is_greater_than(0) }
 
+  it_behaves_like 'skillable'
+
   context 'default scope' do
     it{ expect( Vacancy.default_scoped.order_values ).to eq [ 'salary DESC' ] }
   end
